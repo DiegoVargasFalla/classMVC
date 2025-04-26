@@ -4,7 +4,6 @@
 
 ---
 
-![grafico](src/main/java/net/classes/assets/graficMVC.png)
 ### 🧱 Sus tres componentes:
 
 1. **Modelo (Model)**
@@ -31,6 +30,7 @@
 
     - Llama al modelo para actualizar datos y luego actualiza la vista.
 
+![grafico](src/main/java/net/classes/assets/graficMVC.png)
 ---
 
 ### 🔁 ¿Cómo interactúan?
