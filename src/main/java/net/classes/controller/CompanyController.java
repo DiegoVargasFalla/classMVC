@@ -1,9 +1,13 @@
 package net.classes.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.classes.model.CompanyEntity;
 import net.classes.model.PersonEntity;
 import net.classes.view.CompanyView;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,11 +23,12 @@ public class CompanyController {
         this.companyList = companyList;
     }
 
-    public void showView() {
+    public void init() {
 
         while (view.getRunning()) {
 
             view.showView();
+            updateList();
             Scanner scanner = view.getScanner();
 
             try {
@@ -31,10 +36,14 @@ public class CompanyController {
 
                 if (option == 1) {
                     addCompany();
-                    showInfoCompany();
+                    //showInfoCompany();
                 } else if (option == 2) {
-                    return;
-                } else if (option == 0) {
+                    showInfoCompany();
+                    addPersonToCompany();
+                } else if (option == 3) {
+                    showInfoCompany();
+                }
+                else if (option == 0) {
                     view.setRunning(false);
                 }
             } catch (InputMismatchException e) {
@@ -50,7 +59,7 @@ public class CompanyController {
         Scanner scanner = view.getScanner();
         ArrayList<PersonEntity> personList = new ArrayList<>();
 
-        view.setConsoleMessage("  Ingrese el id de la empresa");
+        view.setConsoleMessage("  Ingrese el id de la empresa ");
         System.out.println(view.getConsoleMessage());
         view.setConsoleMessage(" -> ");
         System.out.print(view.getConsoleMessage());
@@ -113,24 +122,70 @@ public class CompanyController {
 
         CompanyEntity company = new CompanyEntity(idCompany, nameCompany, personList);
         companyList.add(company);
+        saveInfoFile(companyList);
     }
+
     public void showInfoCompany() {
-        for (CompanyEntity company: companyList) {
+
+        ArrayList<CompanyEntity> companyEntityArrayList = new ArrayList<>();
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            companyEntityArrayList = mapper.readValue(new File("src/main/java/net/classes/assets/info.json"), new TypeReference<>(){});
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        for (CompanyEntity company: companyEntityArrayList) {
             System.out.println(" - id: " + company.getId());
-            System.out.println("    - name: " + company.getName());
+            System.out.println("   - name: " + company.getName());
             if (!company.getPersonList().isEmpty()) {
                 for (PersonEntity person: company.getPersonList()) {
-                    System.out.println("       - Id: " + person.getId());
+                    System.out.println("      - Id: " + person.getId());
                     System.out.println("          - Name: " + person.getName());
                     System.out.println("          - Surname: " + person.getSurname());
                     System.out.println("          - Age: " + person.getAge());
                 }
             }
-
         }
     }
 
     public void addPersonToCompany() {
-        //make method
+        view.setConsoleMessage("-> Ingrese el id de la empresa que quiere actualizar");
+        System.out.println(view.getConsoleMessage());
+
+        Scanner scanner = view.getScanner();
+        int idCompany = scanner.nextInt();
+
+        for (CompanyEntity company: companyList) {
+            if (company.getId() == idCompany) {
+                //logica de informacion persona
+
+                PersonEntity persona = new PersonEntity();
+                company.getPersonList().add(persona);
+                saveInfoFile(companyList);
+            }
+        }
+    }
+
+    public void saveInfoFile(ArrayList<CompanyEntity> companyList) {
+        try {
+            System.out.println("save info");
+            System.out.println(" ");
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(new File("src/main/java/net/classes/assets/info.json"), companyList);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateList() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            companyList = mapper.readValue(new File("src/main/java/net/classes/assets/info.json"), new TypeReference<>(){});
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

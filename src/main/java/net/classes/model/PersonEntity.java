@@ -1,5 +1,7 @@
 package net.classes.model;
 
+import net.classes.view.CompanyView;
+
 public class PersonEntity {
     private Long id;
     private String name;
@@ -12,6 +14,8 @@ public class PersonEntity {
         this.surname = surname;
         this.age = age;
     }
+
+    public PersonEntity() {}
 
     public Long getId() {
         return id;

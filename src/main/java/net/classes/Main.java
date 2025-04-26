@@ -8,11 +8,19 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+
+        //company view
         CompanyView companyView = new CompanyView();
+
+        //company object
         CompanyEntity company = new CompanyEntity();
+
         ArrayList<CompanyEntity> listCompany = new ArrayList<>();
 
+        //company controller
         CompanyController controller = new CompanyController(companyView, company, listCompany);
-        controller.showView();
+
+        //show view
+        controller.init();
     }
 }

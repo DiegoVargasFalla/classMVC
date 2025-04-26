@@ -3,7 +3,8 @@ package net.classes.view;
 import java.util.Scanner;
 
 public class CompanyView {
-    String consoleMessage;
+
+    private String consoleMessage;
     Scanner field;
     boolean running;
 
@@ -38,7 +39,7 @@ public class CompanyView {
     }
 
     public void showView() {
-        consoleMessage = "\n##### Bienvenido a Techint  #####";
+        consoleMessage = "\n##### Bienvenido  #####";
         System.out.println(consoleMessage);
 
         consoleMessage = "-------- Menu --------\n";
@@ -51,6 +52,8 @@ public class CompanyView {
         consoleMessage = "  1) Ingresar compañia";
         System.out.println(consoleMessage);
         consoleMessage = "  2) Ingresar trabajador";
+        System.out.println(consoleMessage);
+        consoleMessage = "  3) ver informacion";
         System.out.println(consoleMessage);
         consoleMessage = "  0) Salir";
         System.out.println(consoleMessage);
