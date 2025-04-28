@@ -1,4 +1,4 @@
-package net.classes.model;
+package net.classes.classes.controller.model;
 
 import java.util.ArrayList;
 

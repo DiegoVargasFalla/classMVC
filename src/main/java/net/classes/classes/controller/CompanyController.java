@@ -1,10 +1,10 @@
-package net.classes.controller;
+package net.classes.classes.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.classes.model.CompanyEntity;
-import net.classes.model.PersonEntity;
-import net.classes.view.CompanyView;
+import net.classes.classes.controller.model.CompanyEntity;
+import net.classes.classes.controller.model.PersonEntity;
+import net.classes.classes.controller.view.CompanyView;
 
 import java.io.File;
 import java.io.IOException;

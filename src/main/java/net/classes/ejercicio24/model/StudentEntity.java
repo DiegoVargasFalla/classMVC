@@ -1,13 +1,13 @@
 package net.classes.ejercicio24.model;
 
 public class StudentEntity {
-    private int id;
+    private Long id;
     private String name;
     private String surname;
     private int semester;
     private Float note;
 
-    public StudentEntity(int id, String name, String surname, int semester, Float note) {
+    public StudentEntity(Long id, String name, String surname, int semester, Float note) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -17,11 +17,11 @@ public class StudentEntity {
 
     public StudentEntity() {}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -55,5 +55,14 @@ public class StudentEntity {
 
     public void setNote(Float note) {
         this.note = note;
+    }
+
+    public void showInfo() {
+        System.out.println("+------------------+");
+        System.out.println("| id: " + id);
+        System.out.println("| nombre: " + name);
+        System.out.println("| apellido: " + surname);
+        System.out.println("| semestre: " + semester);
+        System.out.println("| nota: " + note);
     }
 }

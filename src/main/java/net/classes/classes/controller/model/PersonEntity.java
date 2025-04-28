@@ -1,6 +1,4 @@
-package net.classes.model;
-
-import net.classes.view.CompanyView;
+package net.classes.classes.controller.model;
 
 public class PersonEntity {
     private Long id;

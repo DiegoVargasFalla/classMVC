@@ -18,7 +18,7 @@ public class ViewCourse {
         consoleMessage = "------- Menu -------";
         System.out.println(consoleMessage);
 
-        consoleMessage = "1) Ingresar un estudiante";
+        consoleMessage = "1) Crear un estudiante";
         System.out.println(consoleMessage);
 
         consoleMessage = "2) Eliminar un estudiante";
@@ -27,13 +27,19 @@ public class ViewCourse {
         consoleMessage = "3) Buscar un estudiante";
         System.out.println(consoleMessage);
 
-        consoleMessage = "4) Promedio del curso";
+        consoleMessage = "4) Modificar un estudiante";
         System.out.println(consoleMessage);
 
-        consoleMessage = "5) Estudiantes aprovados";
+        consoleMessage = "5) Calcular promedio curso";
         System.out.println(consoleMessage);
 
-        consoleMessage = "6) salir";
+        consoleMessage = "6) Alumnos aprovados";
+        System.out.println(consoleMessage);
+
+        consoleMessage = "7) Ver estudiantes";
+        System.out.println(consoleMessage);
+
+        consoleMessage = "8) salir";
         System.out.println(consoleMessage);
 
         consoleMessage = " -> ";

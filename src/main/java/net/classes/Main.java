@@ -1,13 +1,8 @@
 package net.classes;
 
-import net.classes.controller.CompanyController;
 import net.classes.ejercicio24.controller.ControllerCourse;
 import net.classes.ejercicio24.model.CourseEntity;
 import net.classes.ejercicio24.view.ViewCourse;
-import net.classes.model.CompanyEntity;
-import net.classes.view.CompanyView;
-
-import java.util.ArrayList;
 
 public class Main {
 

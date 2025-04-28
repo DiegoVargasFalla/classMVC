@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CourseEntity {
     private int id;
     private String nameCourse;
-    private ArrayList<StudentEntity> studentsList;
+    private ArrayList<StudentEntity> studentsList = new ArrayList<>();
 
     public CourseEntity(int id, String nameCourse, ArrayList<StudentEntity> studentsList) {
         this.id = id;
