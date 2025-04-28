@@ -1,4 +1,4 @@
-package net.classes.classes.controller.view;
+package net.classes.classesUni.view;
 
 import java.util.Scanner;
 
